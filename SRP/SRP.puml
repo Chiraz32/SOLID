@@ -1,0 +1,9 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class CarManager
+class Car
+class CarRepo
+CarManager o-- CarRepo
+CarRepo "1" -- "many" Car
+@enduml

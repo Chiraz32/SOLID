@@ -1,0 +1,11 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ResourceAllocator
+abstract class Slot
+class SpaceSlot extends Slot
+class TimeSlot extends Slot
+
+ResourceAllocator -- Slot
+
+@enduml
