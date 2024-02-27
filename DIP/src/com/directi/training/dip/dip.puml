@@ -1,0 +1,51 @@
+@startuml
+interface IDataReader {
+    +readData(): String
+}
+
+interface IDataWriter {
+    +writeData(data: String): void
+}
+
+interface IDatabase {
+    +write(data: String): int
+}
+
+class FileDataReader implements IDataReader {
+    +FileDataReader(filePath: String)
+    +readData(): String
+}
+
+class FileDataWriter implements IDataWriter {
+    +FileDataWriter(filePath: String)
+    +writeData(data: String): void
+}
+
+class Base64Encoder {
+    +encode(data: String): String
+}
+
+class MyDatabase implements IDatabase {
+    +write(data: String): int
+}
+
+class EncodingModule {
+    -dataReader: DataReader
+    -dataWriter: DataWriter
+    -base64Encoder: Base64Encoder
+    -dataStorage: DataStorage
+
+    +EncodingModule(dataReader: DataReader, dataWriter: DataWriter, base64Encoder: Base64Encoder, dataStorage: DataStorage)
+    +encode(): void
+}
+
+class EncodingModuleClient {
+    +main(args: String[]): void
+}
+
+EncodingModule --> IDataReader
+EncodingModule --> IDataWriter
+EncodingModule --> Base64Encoder
+EncodingModule --> IDatabase
+EncodingModuleClient --> EncodingModule
+@enduml

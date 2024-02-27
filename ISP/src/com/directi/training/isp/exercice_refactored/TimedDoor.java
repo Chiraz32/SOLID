@@ -45,5 +45,4 @@ public class TimedDoor implements Door , ITimed
         _locked = true;
     }
 
-
 }

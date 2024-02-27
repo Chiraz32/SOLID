@@ -39,7 +39,6 @@ public class SensingDoor implements Door,IProximity
     }
 
 
-
     @Override
     public void proximityCallback()
     {
